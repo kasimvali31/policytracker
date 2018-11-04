@@ -1,4 +1,10 @@
-<LinearLayout android:layout_width="match_parent"
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+<LinearLayout
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:layout_gravity="center"
@@ -10,35 +16,23 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_margin="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/add_company_bid"
-                android:hint="Business Id"
-                android:inputType="text"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="10dp"
-                android:padding="10dp"
-                android:background="@drawable/edittext_shapes"/>
-        </android.support.design.widget.TextInputLayout>
 
-        <android.support.design.widget.TextInputLayout
-            android:layout_margin="10dp"
+
+        <Spinner
+            android:id="@+id/add_company_bid_spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <EditText
-                android:id="@+id/add_company_name"
-                android:hint="Business name"
-                android:inputType="text"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingLeft="10dp"
-                android:padding="10dp"
-                android:background="@drawable/edittext_shapes"/>
-        </android.support.design.widget.TextInputLayout>
+            android:layout_height="50dp"
+            android:layout_marginBottom="10dp">
+
+        </Spinner>
+        <Spinner
+            android:id="@+id/add_company_name"
+            android:layout_width="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_height="50dp">
+
+        </Spinner>
+
 
         <android.support.design.widget.TextInputLayout
             android:layout_margin="10dp"
@@ -46,6 +40,7 @@
             android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/add_company_license_number"
+                android:layout_marginTop="10dp"
                 android:hint="License number"
                 android:inputType="text"
                 android:layout_width="match_parent"
@@ -67,3 +62,8 @@
             android:text="save"/>
     </LinearLayout>
 </LinearLayout>
+    <include
+        android:visibility="gone"
+        android:id="@+id/data_loading_screen_layout"
+        layout="@layout/data_loading"/>
+</RelativeLayout>

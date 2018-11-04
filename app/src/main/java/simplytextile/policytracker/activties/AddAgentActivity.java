@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import org.json.JSONException;
@@ -25,6 +26,7 @@ public class AddAgentActivity extends AppCompatActivity
             state_add_agents,zip_add_agents,email1_add_agents,email2_add_agents,phone1_add_agents,phone2_add_agents;
     Button add_agent_btn;
 public  static String S_id;
+LinearLayout data_loading_screen_layout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -52,6 +54,7 @@ public  static String S_id;
         email2_add_agents=(EditText)findViewById(R.id.email2_add_agents);
         phone1_add_agents=(EditText)findViewById(R.id.phone1_add_agents);
         phone2_add_agents=(EditText)findViewById(R.id.phone2_add_agents);
+        data_loading_screen_layout=(LinearLayout)findViewById(R.id.data_loading_screen_layout);
         add_agent_btn=(Button) findViewById(R.id.add_agent_btn);
         add_agent_btn.setOnClickListener(new View.OnClickListener()
         {
@@ -118,6 +121,7 @@ public  static String S_id;
             phone1_add_agents.setError("enter mobile number");
         }else
         {
+            data_loading_screen_layout.setVisibility(View.VISIBLE);
             JSONObject jmain=new JSONObject();
             JSONObject sub1=new JSONObject();
             try
@@ -151,6 +155,7 @@ public  static String S_id;
                         JSONObject jb = null;
                         try
                         {
+                            data_loading_screen_layout.setVisibility(View.GONE);
                             jb = new JSONObject(result);
                             String   msg=jb.getString("message");
                             Toast.makeText(AddAgentActivity.this, ""+msg, Toast.LENGTH_SHORT).show();

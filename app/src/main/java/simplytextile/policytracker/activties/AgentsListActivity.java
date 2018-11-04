@@ -12,6 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import retrofit2.Call;
@@ -30,6 +31,7 @@ public class AgentsListActivity extends AppCompatActivity
     SharedPreferences sharedpreferences;
     RecyclerView agents_list_recycler;
     ImageView imageView;
+    LinearLayout data_loading_screen_layout;
 
     LinearLayoutManager llm;
     @Override
@@ -38,6 +40,7 @@ public class AgentsListActivity extends AppCompatActivity
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_agents_list);
+        data_loading_screen_layout=(LinearLayout)findViewById(R.id.data_loading_screen_layout);
 
         SharedPreferences mPrefs = getSharedPreferences("IDvalue",0);
         String S_id = mPrefs.getString("key", "");
@@ -54,6 +57,7 @@ public class AgentsListActivity extends AppCompatActivity
                 startActivity(addagent);
             }
         });
+        data_loading_screen_layout.setVisibility(View.VISIBLE);
         ApiService ps = ApiClient.getClient().create(ApiService.class);
         Call<AgentsResponse> agents=ps.getAgents(S_id);
         agents.enqueue(new Callback<AgentsResponse>()
@@ -61,6 +65,7 @@ public class AgentsListActivity extends AppCompatActivity
             @Override
             public void onResponse(Call<AgentsResponse> call, Response<AgentsResponse> response)
             {
+                data_loading_screen_layout.setVisibility(View.GONE);
                 if (response.body().getStatuscode()==0)
                 {
                     AgentsListAdapter adapter=new AgentsListAdapter(response.body().getData().getAgentList(),AgentsListActivity.this);
@@ -75,6 +80,7 @@ public class AgentsListActivity extends AppCompatActivity
             @Override
             public void onFailure(Call<AgentsResponse> call, Throwable t)
             {
+                data_loading_screen_layout.setVisibility(View.GONE);
                 Toast.makeText(AgentsListActivity.this, "something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
