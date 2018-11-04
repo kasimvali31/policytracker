@@ -42,8 +42,9 @@ public class CompaniesListAdapters extends RecyclerView.Adapter<CompaniesListAda
     }
 
     @Override
-    public int getItemCount() {
-        return 0;
+    public int getItemCount()
+    {
+        return company_list.size();
     }
     class ViewH extends RecyclerView.ViewHolder
     {

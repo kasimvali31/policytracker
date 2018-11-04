@@ -192,7 +192,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else if (id == R.id.logout)
         {
-
             editor.clear();
             editor.commit();
             Intent logout=new Intent(MainActivity.this,LoginActivity.class);

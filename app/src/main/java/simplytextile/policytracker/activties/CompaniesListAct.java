@@ -61,7 +61,7 @@ public class CompaniesListAct extends AppCompatActivity
             @Override
             public void onFailure(Call<Compres> call, Throwable t)
             {
-                Toast.makeText(CompaniesListAct.this, "something went wrong", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(CompaniesListAct.this, "something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
     }
