@@ -55,6 +55,7 @@ public class CompaniesListAct extends AppCompatActivity
                 }
                 else
                 {
+                    Toast.makeText(CompaniesListAct.this, "hello", Toast.LENGTH_SHORT).show();
                     Toast.makeText(CompaniesListAct.this, ""+response.body().getStatuscode(), Toast.LENGTH_SHORT).show();
                 }
             }
