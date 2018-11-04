@@ -17,6 +17,7 @@ import android.widget.Toast;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
+import simplytextile.pdf.PdfActivty;
 import simplytextile.policytracker.R;
 import simplytextile.policytracker.adapters.CustomerListAdapter;
 import simplytextile.policytracker.apis.ApiClient;
@@ -77,7 +78,10 @@ public class CustomerActivity extends AppCompatActivity
                 Toast.makeText(CustomerActivity.this, "something went wrong", Toast.LENGTH_SHORT).show();
             }
         });
+
+
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -97,6 +101,13 @@ public class CustomerActivity extends AppCompatActivity
             case R.id.add_agents:
             {
                 startActivity(new Intent(this,AddCustomerActivity.class));
+            }
+
+            case R.id.action_favorite:
+            {
+
+
+
             }
             default:
                 return super.onOptionsItemSelected(item);
