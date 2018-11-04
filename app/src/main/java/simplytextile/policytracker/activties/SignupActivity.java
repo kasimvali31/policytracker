@@ -189,7 +189,7 @@ public class SignupActivity extends AppCompatActivity
             @Override
             public void onFailure(Call<Compres> call, Throwable t)
             {
-                Toast.makeText(SignupActivity.this, "something went wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SignupActivity.this, "something went wrong.....", Toast.LENGTH_SHORT).show();
             }
         });
 
