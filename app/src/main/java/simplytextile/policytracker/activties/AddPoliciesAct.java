@@ -218,9 +218,10 @@ public class AddPoliciesAct extends AppCompatActivity
                     try
                     {
                         jb = new JSONObject(result);
-                        String   msg=jb.getString("message");
-                        Toast.makeText(AddPoliciesAct.this, ""+msg, Toast.LENGTH_SHORT).show();
-                    } catch (JSONException e)
+                        String msg=jb.getString("message");
+                        Toast.makeText(AddPoliciesAct.this, " "+msg, Toast.LENGTH_SHORT).show();
+                    }
+                    catch (JSONException e)
                     {
                         e.printStackTrace();
                     }

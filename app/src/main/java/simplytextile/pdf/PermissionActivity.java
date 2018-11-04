@@ -85,8 +85,10 @@ public class PermissionActivity extends AppCompatActivity {
     }
 
     private boolean hasAllPermissionsGranted(@NonNull int[] grantResults) {
-        for (int grantResult : grantResults) {
-            if (grantResult == PackageManager.PERMISSION_DENIED) {
+        for (int grantResult : grantResults)
+        {
+            if (grantResult == PackageManager.PERMISSION_DENIED)
+            {
                 return false;
             }
         }

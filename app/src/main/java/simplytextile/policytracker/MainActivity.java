@@ -17,17 +17,15 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import simplytextile.policytracker.activties.AgentsListActivity;
-import simplytextile.policytracker.activties.CompaniesActivity;
 import simplytextile.policytracker.activties.CompaniesListAct;
 import simplytextile.policytracker.activties.CustomerActivity;
 import simplytextile.policytracker.activties.LoginActivity;
 import simplytextile.policytracker.activties.NotificationActivity;
 import simplytextile.policytracker.activties.PoliciesActivity;
-import simplytextile.policytracker.activties.UpdateUserProfileActivity;
 import simplytextile.policytracker.activties.UserProfileActivity;
-import simplytextile.policytracker.models.Customer;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -127,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onCreateOptionsMenu(Menu menu)
     {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -144,6 +142,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             return true;
         }
+
+
 
         return super.onOptionsItemSelected(item);
     }
