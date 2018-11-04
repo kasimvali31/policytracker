@@ -100,8 +100,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         header.setOnClickListener(new View.OnClickListener()
         {
             @Override
-            public void onClick(View v) {
-
+            public void onClick(View v)
+            {
                 Intent updateprofile=new Intent(MainActivity.this, UserProfileActivity.class);
                 startActivity(updateprofile);
             }
@@ -110,12 +110,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public void onBackPressed() {
+    public void onBackPressed()
+    {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START))
         {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        }
+        else
+            {
             super.onBackPressed();
         }
     }
@@ -129,14 +132,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_settings)
+        {
             return true;
         }
 
@@ -176,7 +181,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         else if (id == R.id.customers)
         {
-
             Intent customer =new Intent(MainActivity.this, CustomerActivity.class);
             startActivity(customer);
 
@@ -189,12 +193,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else if (id == R.id.logout)
         {
 
-//            editor.clear();
-//            editor.commit();
-//            Intent logout=new Intent(MainActivity.this,LoginActivity.class);
-//            startActivity(logout);
-//            SharedPreferences mPrefs = getSharedPreferences("IDvalue",0);
-//            String S_id = mPrefs.getString("key", "");
+            editor.clear();
+            editor.commit();
+            Intent logout=new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(logout);
+            SharedPreferences mPrefs = getSharedPreferences("IDvalue",0);
+            String S_id = mPrefs.getString("key", "");
 
 
         }
