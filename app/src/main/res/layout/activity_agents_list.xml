@@ -1,3 +1,8 @@
+<RelativeLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -33,3 +38,8 @@
         android:layout_height="match_parent">
     </android.support.v7.widget.RecyclherView>
 </LinearLayout>
+    <include
+        android:visibility="gone"
+        android:id="@+id/data_loading_screen_layout"
+        layout="@layout/data_loading"/>
+</RelativeLayout>

@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -41,6 +42,7 @@ public class AddCompanyActivity extends AppCompatActivity
     Spinner add_company_name,add_company_bid_spinner;
     EditText add_company_license_number;
     Button addcommpany_btn_save;
+    LinearLayout data_loading_screen_layoutss;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -53,6 +55,7 @@ public class AddCompanyActivity extends AppCompatActivity
         add_company_name=(Spinner)findViewById(R.id.add_company_name);
         add_company_bid_spinner=(Spinner)findViewById(R.id.add_company_bid_spinner);
         add_company_license_number=(EditText) findViewById(R.id.add_company_license_number);
+        data_loading_screen_layoutss=(LinearLayout)findViewById(R.id.data_loading_screen_layout);
         addcommpany_btn_save=(Button) findViewById(R.id.addcommpany_btn_save);
 
 
@@ -177,6 +180,7 @@ public class AddCompanyActivity extends AppCompatActivity
             add_company_license_number.setError("enter licence");
         }
         else {
+            data_loading_screen_layoutss.setVisibility(View.VISIBLE);
 
             JSONObject main = new JSONObject();
             JSONArray jr1 = new JSONArray();
@@ -202,6 +206,7 @@ public class AddCompanyActivity extends AppCompatActivity
 
                         JSONObject jb = null;
                         try {
+                            data_loading_screen_layoutss.setVisibility(View.GONE);
                             jb = new JSONObject(result);
                             String msg = jb.getString("message");
                             Toast.makeText(AddCompanyActivity.this, "" + msg, Toast.LENGTH_SHORT).show();
@@ -212,6 +217,7 @@ public class AddCompanyActivity extends AppCompatActivity
                 });
 
             } catch (JSONException e) {
+                data_loading_screen_layoutss.setVisibility(View.GONE);
                 e.printStackTrace();
             }
         }
