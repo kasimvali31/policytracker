@@ -38,7 +38,7 @@
         <activity android:name=".activties.UpdateUserProfileActivity" />
         <activity android:name=".activties.AgentsListActivity" />
         <activity android:name=".activties.AddAgentActivity" />
-        <!-- <activity android:name=".activties.CompaniesListAct" /> -->
+         <activity android:name=".activties.CompaniesListAct" />
         <activity android:name=".activties.AddPoliciesAct" />
         <activity android:name=".activties.UpdateCustomer" />
         <activity android:name=".activties.UpdateAgent" />
@@ -56,7 +56,7 @@
         </provider>
 
         <activity android:name="simplytextile.pdf.PdfActivty"></activity>
-        <activity android:name=".activties.CompaniesListAct"></activity>
+
     </application>
 
 </manifest>
