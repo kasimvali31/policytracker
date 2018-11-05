@@ -106,7 +106,8 @@ public class CustomerActivity extends AppCompatActivity
             case R.id.action_favorite:
             {
 
-
+                startActivity(new Intent(this,PdfActivty.class));
+                finish();
 
             }
             default:

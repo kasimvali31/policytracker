@@ -100,8 +100,8 @@ public class PdfActivty extends AppCompatActivity
             // Document Settings
             document.setPageSize(PageSize.A4);
             document.addCreationDate();
-            document.addAuthor("Android School");
-            document.addCreator("Pratik Butani");
+            document.addAuthor("PolicyTracker");
+            document.addCreator("pdflist");
 
             /***
              * Variables for further use....
@@ -122,7 +122,7 @@ public class PdfActivty extends AppCompatActivity
             // Title Order Details...
             // Adding Title....
             Font mOrderDetailsTitleFont = new Font(urName, 36.0f, Font.NORMAL, BaseColor.BLACK);
-            Chunk mOrderDetailsTitleChunk = new Chunk("Order Details", mOrderDetailsTitleFont);
+            Chunk mOrderDetailsTitleChunk = new Chunk("Customer Details", mOrderDetailsTitleFont);
             Paragraph mOrderDetailsTitleParagraph = new Paragraph(mOrderDetailsTitleChunk);
             mOrderDetailsTitleParagraph.setAlignment(Element.ALIGN_CENTER);
             document.add(mOrderDetailsTitleParagraph);
@@ -130,7 +130,7 @@ public class PdfActivty extends AppCompatActivity
             // Fields of Order Details...
             // Adding Chunks for Title and value
             Font mOrderIdFont = new Font(urName, mHeadingFontSize, Font.NORMAL, mColorAccent);
-            Chunk mOrderIdChunk = new Chunk("Order No:", mOrderIdFont);
+            Chunk mOrderIdChunk = new Chunk("CustomerID:", mOrderIdFont);
             Paragraph mOrderIdParagraph = new Paragraph(mOrderIdChunk);
             document.add(mOrderIdParagraph);
 
@@ -148,7 +148,7 @@ public class PdfActivty extends AppCompatActivity
 
             // Fields of Order Details...
             Font mOrderDateFont = new Font(urName, mHeadingFontSize, Font.NORMAL, mColorAccent);
-            Chunk mOrderDateChunk = new Chunk("Order Date:", mOrderDateFont);
+            Chunk mOrderDateChunk = new Chunk("CustomerName", mOrderDateFont);
             Paragraph mOrderDateParagraph = new Paragraph(mOrderDateChunk);
             document.add(mOrderDateParagraph);
 
@@ -163,7 +163,7 @@ public class PdfActivty extends AppCompatActivity
 
             // Fields of Order Details...
             Font mOrderAcNameFont = new Font(urName, mHeadingFontSize, Font.NORMAL, mColorAccent);
-            Chunk mOrderAcNameChunk = new Chunk("Account Name:", mOrderAcNameFont);
+            Chunk mOrderAcNameChunk = new Chunk("Email", mOrderAcNameFont);
             Paragraph mOrderAcNameParagraph = new Paragraph(mOrderAcNameChunk);
             document.add(mOrderAcNameParagraph);
 
