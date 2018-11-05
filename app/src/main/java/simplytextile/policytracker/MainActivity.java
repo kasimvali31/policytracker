@@ -20,7 +20,7 @@ import android.widget.TextView;
 
 import simplytextile.policytracker.activties.AgentsListActivity;
 import simplytextile.policytracker.activties.CompaniesActivity;
-import simplytextile.policytracker.activties.CompaniesListAct;
+//import simplytextile.policytracker.activties.CompaniesListAct;
 import simplytextile.policytracker.activties.CustomerActivity;
 import simplytextile.policytracker.activties.LoginActivity;
 import simplytextile.policytracker.activties.NotificationActivity;
@@ -163,8 +163,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         else if (id == R.id.company)
         {
-            Intent company =new Intent(MainActivity.this, CompaniesListAct.class);
-            startActivity(company);
+//            Intent company =new Intent(MainActivity.this, CompaniesListAct.class);
+//            startActivity(company);
         }
         else if (id == R.id.policies)
         {
