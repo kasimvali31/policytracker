@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -31,6 +32,7 @@ LinearLayout data_loading_screen_layout;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.add_agent_activity);
         SharedPreferences mPrefs = getSharedPreferences("IDvalue",0);
@@ -173,5 +175,20 @@ LinearLayout data_loading_screen_layout;
             }
         }
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                // app icon in action bar clicked; goto parent activity.
+                //onBackPressed();
+                startActivity(new Intent(this,AgentsListActivity.class));
+                this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
