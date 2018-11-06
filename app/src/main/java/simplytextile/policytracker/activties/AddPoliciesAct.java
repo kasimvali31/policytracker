@@ -3,6 +3,7 @@ package simplytextile.policytracker.activties;
 import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -390,6 +391,7 @@ public class AddPoliciesAct extends AppCompatActivity
                     try {
                         jb = new JSONObject(result);
                         String msg = jb.getString("message");
+                        Log.e("errs",""+msg);
                         Toast.makeText(AddPoliciesAct.this, " " + msg, Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
                         e.printStackTrace();
