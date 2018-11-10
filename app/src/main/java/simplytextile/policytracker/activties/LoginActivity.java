@@ -137,7 +137,7 @@ public class LoginActivity extends AppCompatActivity
                       Sid=response.body().getData().getSession().getId();
                       mPrefs = getSharedPreferences("IDvalue", 0);
                       SharedPreferences.Editor editor = mPrefs.edit();
-                      editor.putString("key",Sid );
+                      editor.putString("key",Sid);
                       editor.commit();
                       LastName=response.body().getData().getSession().getSubscriber().getLast_name();
                        Email=response.body().getData().getSession().getSubscriber().getAddress().getEmail1();
@@ -160,14 +160,10 @@ public class LoginActivity extends AppCompatActivity
 //                      userprofile.putString("adhaarcard",AdhaarNaumber);
 
                       Intent a=new Intent(LoginActivity.this,MainActivity.class);
-
                       startActivity(a);
-
-
                    }
               else
                   {
-
                      Toast.makeText(LoginActivity.this, "" + response.body().getMessage(), Toast.LENGTH_LONG).show();
                      pDialog.dismiss();
                   }

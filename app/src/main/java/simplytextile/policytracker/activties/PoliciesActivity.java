@@ -38,7 +38,6 @@ public class PoliciesActivity extends AppCompatActivity
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
-
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.policies_activity);
@@ -53,7 +52,7 @@ public class PoliciesActivity extends AppCompatActivity
             @Override
             public void onClick(View v)
             {
-                Intent addcustomer=new Intent(PoliciesActivity.this,AddAgentActivity.class);
+                Intent addcustomer=new Intent(PoliciesActivity.this,AddPoliciesAct.class);
                 startActivity(addcustomer);
             }
         });

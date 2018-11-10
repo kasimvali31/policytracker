@@ -1,7 +1,9 @@
 package simplytextile.policytracker.activties;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -46,6 +48,7 @@ public class AddCompanyActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_company);
         initParams();
@@ -222,5 +225,19 @@ public class AddCompanyActivity extends AppCompatActivity
             }
         }
 
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item)
+    {
+        switch (item.getItemId())
+        {
+            case android.R.id.home:
+                // app icon in action bar clicked; goto parent activity.
+                this.finish();
+                startActivity(new Intent(this,CompaniesListAct.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }
