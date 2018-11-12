@@ -17,7 +17,6 @@
             android:layout_gravity="center"
             android:paddingTop="20dp"
             android:orientation="vertical">
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -51,8 +50,6 @@
                 android:padding="10dp"
                 android:background="@drawable/edittext_shapes"
                 android:hint="Password"/>
-
-
         </LinearLayout>
 
 

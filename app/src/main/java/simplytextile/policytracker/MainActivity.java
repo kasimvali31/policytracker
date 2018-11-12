@@ -3,6 +3,7 @@ package simplytextile.policytracker;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.design.internal.NavigationMenu;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
@@ -19,9 +20,19 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.github.mikephil.charting.charts.BarChart;
+import com.github.mikephil.charting.data.BarData;
+import com.github.mikephil.charting.data.BarDataSet;
+import com.github.mikephil.charting.data.BarEntry;
+
+import java.util.ArrayList;
+import java.util.List;
+
+
 import simplytextile.policytracker.activties.AgentsListActivity;
 import simplytextile.policytracker.activties.CompaniesListAct;
 import simplytextile.policytracker.activties.CustomerActivity;
+import simplytextile.policytracker.activties.HomeActivity;
 import simplytextile.policytracker.activties.LoginActivity;
 import simplytextile.policytracker.activties.NotificationActivity;
 import simplytextile.policytracker.activties.PoliciesActivity;
@@ -56,16 +67,64 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            }
 //        });
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View view)
+//            {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+//            }
+//        });
+
+//        FabSpeedDial fabSpeedDial = (FabSpeedDial) findViewById(R.id.fab);
+//        fabSpeedDial.setMenuListener(new SimpleMenuListenerAdapter()
+//        {
+//            @Override
+//            public boolean onPrepareMenu(NavigationMenu navigationMenu)
+//            {
+//                // TODO: Do something with yout menu items, or return false if you don't want to show them
+//                return true;
+//            }
+//            @Override
+//            public boolean onMenuItemSelected(MenuItem menuItem)
+//            {
+//                //TODO: Start some activity
+//                return false;
+//            }
+//        });
+
+
+        BarChart chart = (BarChart) findViewById(R.id.chart);
+        // PieChart pieChart=(PieChart)findViewById(R.id.piechart);
+
+        List<BarEntry> entries = new ArrayList<>();
+        entries.add(new BarEntry(0f, 30f));
+        entries.add(new BarEntry(2f, 10f));
+        entries.add(new BarEntry(4f, 60f));
+
+
+        BarDataSet set = new BarDataSet(entries, "Policy count by Type");
+        BarData data = new BarData(set);
+        data.setBarWidth(1.0f); // set custom bar width
+        chart.setData(data);
+        chart.setFitBars(true); // make the x-axis fit exactly all bars
+        chart.invalidate(); // refresh
+
+
+
+//        List<PieEntry> entries1 = new ArrayList<>();
+//
+//        entries1.add(new PieEntry(18.5f, "Green"));
+//        entries1.add(new PieEntry(26.7f, "Yellow"));
+//        entries1.add(new PieEntry(24.0f, "Red"));
+//        entries1.add(new PieEntry(30.8f, "Blue"));
+//
+//        PieDataSet set1 = new PieDataSet(entries1, "Election Results");
+//        PieData data1 = new PieData(set1);
+//        pieChart.setData(data1);
+//        pieChart.invalidate();
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -158,8 +217,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (id == R.id.home)
         {
             // Handle the camera action
-//            Intent home =new Intent(MainActivity.this, CompaniesActivity.class);
-//            startActivity(home);
+            Intent home =new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(home);
         }
         else if (id == R.id.company)
         {

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_call"
+        android:icon="@drawable/customers"
+        android:title="cutomer" />
+    <item
+        android:id="@+id/action_text"
+        android:icon="@drawable/policies"
+        android:title="policy"/>
+    <item
+        android:id="@+id/action_email"
+        android:icon="@drawable/edit"
+        android:title="company" />
+</menu>

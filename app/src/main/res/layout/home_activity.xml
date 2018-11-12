@@ -20,7 +20,6 @@
                 android:id="@+id/android_card_home"
                 android:layout_width="110dp"
                 android:layout_height="100dp"
-
                 android:clickable="true"
                 android:layout_margin="3dp">
 
@@ -46,7 +45,6 @@
                         android:layout_height="wrap_content"
                         android:text="Home"
                         android:clickable="true"
-
                         android:gravity="center"
                         android:textColor="@color/colorWhite"
                         android:textSize="16sp" />
@@ -60,8 +58,6 @@
                 android:id="@+id/android_card_view_example24"
                 android:layout_width="110dp"
                 android:layout_height="100dp"
-
-
                 android:focusable="true"
                 android:layout_margin="3dp">
 
@@ -71,7 +67,7 @@
                     android:elevation="4dp"
                     android:orientation="vertical"
                     android:clickable="true"
-                    android:background="@color/colorAppTheme"
+                    android:background="@color/colorAccent"
                     android:padding="16dp">
 
                     <ImageView
@@ -87,13 +83,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Customer"
-
                         android:gravity="center"
                         android:textColor="@color/colorWhite"
                         android:textSize="16sp" />
-
-
-                </LinearLayout>
+            </LinearLayout>
 
             </android.support.v7.widget.CardView>
 
@@ -124,7 +117,7 @@
                         android:id="@+id/cardview_list_title314"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="Policies"
+                        android:text="Active Policies"
 
                         android:gravity="center"
                         android:textColor="@color/colorWhite"
@@ -179,78 +172,7 @@
 
             </android.support.v7.widget.CardView>
 
-            <android.support.v7.widget.CardView
-                android:id="@+id/android_card_view_example44"
-                android:layout_width="110dp"
-                android:layout_height="100dp"
-                android:layout_margin="3dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:elevation="4dp"
-                    android:orientation="vertical"
-                    android:background="@color/colorAppTheme"
-                    android:padding="16dp">
-
-                    <ImageView
-                        android:id="@+id/cardview_image44"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/home"
-                        />
-
-                    <TextView
-                        android:id="@+id/cardview_list_title44"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Home"
-
-                        android:gravity="center"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="16sp" />
-
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
-                android:id="@+id/android_card_view_example14"
-                android:layout_width="110dp"
-                android:layout_height="100dp"
-                android:layout_margin="3dp">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:elevation="4dp"
-                    android:orientation="vertical"
-                    android:background="@color/colorAppTheme"
-                    android:padding="16dp">
-
-                    <ImageView
-                        android:id="@+id/cardview_image14"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/home"
-                        />
-
-                    <TextView
-                        android:id="@+id/cardview_list_title14"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="Home"
-
-                        android:gravity="center"
-                        android:textColor="@color/colorWhite"
-                        android:textSize="16sp" />
-
-
-                </LinearLayout>
-
-            </android.support.v7.widget.CardView>
 
         </LinearLayout>
 
