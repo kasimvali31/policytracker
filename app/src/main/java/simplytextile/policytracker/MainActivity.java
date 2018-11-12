@@ -24,6 +24,7 @@ import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -103,9 +104,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         entries.add(new BarEntry(0f, 30f));
         entries.add(new BarEntry(2f, 10f));
         entries.add(new BarEntry(4f, 60f));
-
-
         BarDataSet set = new BarDataSet(entries, "Policy count by Type");
+        set.setColors(ColorTemplate.COLORFUL_COLORS);
+        chart.animateY(5000);
+
         BarData data = new BarData(set);
         data.setBarWidth(1.0f); // set custom bar width
         chart.setData(data);
