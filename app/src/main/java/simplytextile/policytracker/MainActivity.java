@@ -20,6 +20,13 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//import com.github.mikephil.charting.charts.BarChart;
+//import com.github.mikephil.charting.data.BarData;
+//import com.github.mikephil.charting.data.BarDataSet;
+//import com.github.mikephil.charting.data.BarEntry;
+//import com.github.mikephil.charting.utils.ColorTemplate;
+
+import com.github.clans.fab.FloatingActionMenu;
 import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
@@ -48,6 +55,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     SharedPreferences.Editor editor;
     String tid;
 
+    com.github.clans.fab.FloatingActionButton adding_employee_fab,adding_category_fab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -56,6 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         uname=(TextView)findViewById(R.id.username);
         uname.setText((LoginActivity.FirstName));
+        adding_employee_fab=(com.github.clans.fab.FloatingActionButton)findViewById(R.id.adding_employee_fab);
         setSupportActionBar(toolbar);
 //        profileimage=(ImageView)findViewById(R.id.profileimage);
 //        profileimage.setOnClickListener(new View.OnClickListener()
@@ -96,23 +106,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 //            }
 //        });
 
+        adding_employee_fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(MainActivity.this, "add employee", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         BarChart chart = (BarChart) findViewById(R.id.chart);
-        // PieChart pieChart=(PieChart)findViewById(R.id.piechart);
+        ArrayList<BarEntry> entries = new ArrayList();
+        entries.add(new BarEntry(4f, 0));
+        entries.add(new BarEntry(8f, 1));
+        entries.add(new BarEntry(6f, 2));
+        entries.add(new BarEntry(12f, 3));
+        entries.add(new BarEntry(18f, 4));
+        entries.add(new BarEntry(9f, 5));
 
-        List<BarEntry> entries = new ArrayList<>();
-        entries.add(new BarEntry(0f, 30f));
-        entries.add(new BarEntry(2f, 10f));
-        entries.add(new BarEntry(4f, 60f));
-        BarDataSet set = new BarDataSet(entries, "Policy count by Type");
-        set.setColors(ColorTemplate.COLORFUL_COLORS);
-        chart.animateY(5000);
 
-        BarData data = new BarData(set);
-        data.setBarWidth(1.0f); // set custom bar width
-        chart.setData(data);
-        chart.setFitBars(true); // make the x-axis fit exactly all bars
-        chart.invalidate(); // refresh
+        BarDataSet dataset = new BarDataSet(entries, "hello");
+        //defining the x-axis labels
+        ArrayList<String> labels = new ArrayList();
+        labels.add("January");
+        labels.add("February");
+        labels.add("March");
+        labels.add("April");
+        labels.add("May");
+        labels.add("June");
+
+        BarData data = new BarData(labels, dataset);
+        chart.setData(data); // set the data and list of lables into chart<br />
+        chart.setDescription("Description");
 
 
 
