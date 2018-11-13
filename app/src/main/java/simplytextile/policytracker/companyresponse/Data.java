@@ -9,6 +9,7 @@ import java.util.List;
 import simplytextile.policytracker.NotificationResponse.NotificationList;
 import simplytextile.policytracker.models.AgentList;
 import simplytextile.policytracker.models.CustomerList;
+import simplytextile.policytracker.models.Dashboard;
 import simplytextile.policytracker.models.PolicyList;
 
 public class Data
@@ -91,5 +92,17 @@ public class Data
     {
         this.company_list = company_list;
         this.totalrecords = totalrecords;
+    }
+
+    @SerializedName("dashboard")
+    @Expose
+    private Dashboard dashboard;
+
+    public Dashboard getDashboard() {
+        return dashboard;
+    }
+
+    public void setDashboard(Dashboard dashboard) {
+        this.dashboard = dashboard;
     }
 }
