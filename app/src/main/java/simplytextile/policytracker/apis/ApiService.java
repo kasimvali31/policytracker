@@ -16,7 +16,8 @@ import simplytextile.policytracker.companyresponse.AddCmpResponse;
 import simplytextile.policytracker.companyresponse.CompanyList;
         import simplytextile.policytracker.companyresponse.Compres;
         import simplytextile.policytracker.companyresponse.Data;
-        import simplytextile.policytracker.response.AgentsResponse;
+import simplytextile.policytracker.dashboardresponse.DashbordResonse;
+import simplytextile.policytracker.response.AgentsResponse;
         import simplytextile.policytracker.response.CustomerResponse;
         import simplytextile.policytracker.response.PoliciesResponse;
         import simplytextile.policytracker.responses.loginresponses.LoginResponse;
@@ -45,6 +46,11 @@ public interface ApiService
     @Headers("Content-Type:application/json")
     @GET("api/customers")
     Call<CustomerResponse> getCustomers(@Header("app_sid") String S_id);
+
+
+    @Headers("Content-Type:application/json")
+    @GET("api/dashboard")
+    Call<DashbordResonse> getDashboarddata(@Header("app_sid") String S_id);
 
 
     @Headers("Content-Type:application/json")
