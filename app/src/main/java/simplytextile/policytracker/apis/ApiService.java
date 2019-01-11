@@ -3,9 +3,7 @@ package simplytextile.policytracker.apis;
 import java.util.List;
 
         import retrofit2.Call;
-        import retrofit2.Callback;
-        import retrofit2.http.Body;
-        import retrofit2.http.Field;
+import retrofit2.http.Field;
         import retrofit2.http.FormUrlEncoded;
         import retrofit2.http.GET;
         import retrofit2.http.Header;
@@ -15,10 +13,10 @@ import simplytextile.policytracker.NotificationResponse.Notresponse;
 import simplytextile.policytracker.companyresponse.AddCmpResponse;
 import simplytextile.policytracker.companyresponse.CompanyList;
         import simplytextile.policytracker.companyresponse.Compres;
-        import simplytextile.policytracker.companyresponse.Data;
-        import simplytextile.policytracker.response.AgentsResponse;
+import simplytextile.policytracker.response.AgentsResponse;
         import simplytextile.policytracker.response.CustomerResponse;
-        import simplytextile.policytracker.response.PoliciesResponse;
+import simplytextile.policytracker.dashboardresponse.DashBoardResposne;
+import simplytextile.policytracker.response.PoliciesResponse;
         import simplytextile.policytracker.responses.loginresponses.LoginResponse;
 
 public interface ApiService
@@ -66,6 +64,13 @@ public interface ApiService
     @Headers("Content-Type:application/json")
     @GET("/api/subscribers/id/companies")
     Call<AddCmpResponse> addCompany(@Header("app_sid") String S_id);
+
+
+    @Headers("Content-Type:application/json")
+    @GET("/api/dashboard")
+    Call<DashBoardResposne> dashBoard(@Header("app_sid") String S_id);
+
+
 
 
 

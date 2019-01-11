@@ -10,12 +10,15 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Filter;
+import android.widget.Filterable;
 
 import com.android.volley.Request;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import simplytextile.policytracker.R;
@@ -29,10 +32,13 @@ import simplytextile.policytracker.models.CustomerList;
  * Created by shmahe on 21-09-2018.
  */
 
-public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapter.ViewHolderss>
+public  class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapter.ViewHolderss> implements  Filterable
 {
-    List<CustomerList> customer_list;
+    public static List<CustomerList> customer_list;
+    List<CustomerList> mArrayList;
     Context context;
+    public static String Custname;
+
     public  static  String delid;
 
 
@@ -54,8 +60,8 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     {
 
         //viewHolderss.mtext.setText(""+customer_list.get(i).getId());
+        Custname=customer_list.get(i).getFirst_name();
         viewHolderss.lastname_customer.setText(""+customer_list.get(i).getLast_name());
-
         viewHolderss.mobile.setText(""+customer_list.get(i).getAddress().getPhone1());
         viewHolderss.customer_email.setText(""+customer_list.get(i).getAddress().getEmail1());
      //   viewHolderss.customer_dob.setText(""+customer_list.get(i).getDate_of_birth());
@@ -200,10 +206,51 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
         return customer_list.size();
     }
 
+    @Override
+    public Filter getFilter()
+    {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+
+                String charString = charSequence.toString();
+
+                if (charString.isEmpty()) {
+
+                    customer_list = mArrayList;
+                } else {
+
+                    ArrayList<CustomerList> filteredList = new ArrayList<>();
+
+                    for (CustomerList androidVersion : mArrayList) {
+
+                        if (androidVersion.getBusiness_name().toLowerCase().contains(charString) || androidVersion.getFirst_name().toLowerCase().contains(charString) || androidVersion.getLast_name().toLowerCase().contains(charString)) {
+
+                            filteredList.add(androidVersion);
+                        }
+                    }
+
+                    customer_list = filteredList;
+                }
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = customer_list;
+                return filterResults;
+            }
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                customer_list = (ArrayList<CustomerList>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
+
     class ViewHolderss extends RecyclerView.ViewHolder
     {
         TextView mtext,lastname_customer,mobile,customer_id_proof_proof,customer_address,customer_email,customer_dob;
         ImageView edit_bill_details,delete_bill_details;
+
 
         public ViewHolderss(@NonNull View itemView)
         {
